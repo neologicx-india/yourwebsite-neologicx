@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { CalendarDays, Phone, MapPin, Mail, MessageCircle } from 'lucide-react'
 import { Navbar } from '@/components/Navbar'
 import { Providers } from '@/components/Providers'
+import ScrollFix from '@/components/ScrollFix'
 export const metadata: Metadata = {
   metadataBase: new URL('https://yourwebsite.neologicx.com'),
   title: {
@@ -120,6 +121,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <body className="antialiased min-h-screen flex flex-col pt-16" suppressHydrationWarning>
         <Providers>
+          <ScrollFix />
           <Navbar />
           <main className="flex-grow flex flex-col">
             {children}
