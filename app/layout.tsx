@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { CalendarDays, Phone, MapPin, Mail, MessageCircle } from 'lucide-react'
 import { Navbar } from '@/components/Navbar'
+import { Providers } from '@/components/Providers'
 export const metadata: Metadata = {
   metadataBase: new URL('https://yourwebsite.neologicx.com'),
   title: {
@@ -29,7 +30,7 @@ export const viewport: Viewport = {
 
 
 const Footer = () => (
-  <footer className="bg-[#080d1a] text-white pt-16 pb-8 relative overflow-hidden font-sans">
+  <footer id="footer" className="bg-[#080d1a] text-white pt-16 pb-8 relative overflow-hidden font-sans">
     <div className="absolute inset-0 bg-[url('/noise.png')] opacity-20 pointer-events-none mix-blend-overlay"></div>
     <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
 
@@ -118,11 +119,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <body className="antialiased min-h-screen flex flex-col pt-16" suppressHydrationWarning>
-        <Navbar />
-        <main className="flex-grow flex flex-col">
-          {children}
-        </main>
-        <Footer />
+        <Providers>
+          <Navbar />
+          <main className="flex-grow flex flex-col">
+            {children}
+          </main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   )
